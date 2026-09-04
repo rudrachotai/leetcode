@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string removeDuplicates(string s, int k) {
+      stack <pair<char,int>> st;
+      for(int i=0;i<s.size();i++){
+        if(st.size()!=0 && st.top().first==s[i]){
+            st.top().second++;
+            if(st.top().second==k) st.pop();
+        }
+        else st.push({s[i],1});
+      }
+         string ans = "";
+    while (!st.empty()) {
+        // Append the character repeated 'count' times
+        ans.append(st.top().second, st.top().first);
+        st.pop();
+    }
+    
+    // Reverse because stack outputs elements backwards
+    reverse(ans.begin(), ans.end());
+    return ans;
+    }
+};
