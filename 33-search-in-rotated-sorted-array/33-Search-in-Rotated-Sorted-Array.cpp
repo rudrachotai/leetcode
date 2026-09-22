@@ -15,8 +15,8 @@ public:
         else if(nums[mid]>nums[end]){
             if(nums[mid]<target) st = mid+1;
             else{
-                if(nums[st]>target) st = mid+1;
-                else end = mid-1;
+                if(nums[st]<=target) end = mid-1;
+                else st = mid+1;
             }
         }
         else{
