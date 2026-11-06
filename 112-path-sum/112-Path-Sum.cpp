@@ -2,6 +2,8 @@ class Solution {
 public:
   
     void helper(TreeNode* root, int targetSum,int sum,bool &ispossible){
+        if (ispossible) return; // Add this to the top of helper() to save time
+
         if(root==NULL) return;
         sum = sum + root->val;
         if(root->left==NULL && root->right==NULL){
